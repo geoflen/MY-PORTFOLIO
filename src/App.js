@@ -320,10 +320,12 @@ export default function Portfolio() {
                     <button
                       type="button"
                       onClick={() => setActiveWorkSample({ title: project.title, url: project.workSample })}
-                      className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 font-medium text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-slate-800"
+                      className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 bg-[length:200%_100%] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-1 hover:bg-right hover:shadow-xl hover:shadow-cyan-400/40 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-slate-800"
                     >
-                      <FileText size={16} />
-                      View Dashboard Report
+                      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                      <FileText className="relative" size={16} />
+                      <span className="relative">View Dashboard Report</span>
+                      <ArrowDownRight className="relative transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" size={16} />
                     </button>
                   )}
                   {project.github && (
