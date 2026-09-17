@@ -167,11 +167,11 @@ export default function Portfolio() {
           </h1>
           
           <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-            Full-Stack Software Engineer & BI Architect | Digital Health  | Health Informatics | Java | Python | C# | PHP
+            Full-Stack Software Engineer & BI Architect 
           </p>
           
           <p className="text-lg text-slate-400 mb-8">
-            National Health Data Systems | Java • Python • C# • Power BI
+            Data Systems | Digital Health  | Health Informatics | Java | Python | C# | PHP | PowerBI
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -199,9 +199,20 @@ export default function Portfolio() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-8 text-center">About Me</h2>
           <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Data professional with a strong foundation in business intelligence, data engineering, and analytics within public health and enterprise systems. Experienced in designing scalable data platforms, building automated pipelines, and delivering executive-level dashboards that support decision making. Skilled at translating complex, multi-source data into actionable insights and high-quality reporting systems.
-            </p>
+            <div className="space-y-5 text-lg leading-relaxed text-slate-300">
+              <p>
+                I’m a software and data engineer with 15+ years of experience building information systems, data platforms, and business intelligence solutions across healthcare, government, international development, and the private sector.
+              </p>
+              <p>
+                I enjoy turning complex problems and messy data into systems that are practical, reliable, and useful. My work spans software engineering, data engineering, data warehousing, Power BI, digital health, and enterprise information systems.
+              </p>
+              <p>
+                Beyond technology, I’m a lover of <strong className="font-semibold text-white">jazz, cinema, travel, good food, and good conversations</strong>. I smile a lot, stay curious, and generally consider myself a peaceful creature with a healthy dislike for unnecessary drama.
+              </p>
+              <p className="font-semibold text-cyan-300">
+                Build useful things. Keep learning. Enjoy the journey.
+              </p>
+            </div>
             
             <div className="grid md:grid-cols-3 gap-6 mt-8">
               <div className="text-center p-4">
