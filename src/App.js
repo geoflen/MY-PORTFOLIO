@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Mail, Upload, Code2, Database, BarChart3, Server, Menu, X, FileText, ArrowDownRight } from 'lucide-react';
 import { Github, Linkedin } from './components/BrandIcons';
+import WorkSampleModal from './components/WorkSampleModal';
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
   const [heroImage, setHeroImage] = useState(null);
+  const [activeWorkSample, setActiveWorkSample] = useState(null);
 
   useEffect(() => {
     return () => {
@@ -304,15 +306,14 @@ export default function Portfolio() {
                 
                 <div className="flex flex-wrap items-center gap-3 text-sm">
                   {project.workSample && (
-                    <a
-                      href={project.workSample}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      type="button"
+                      onClick={() => setActiveWorkSample({ title: project.title, url: project.workSample })}
                       className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 font-medium text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-slate-800"
                     >
                       <FileText size={16} />
-                      Open Dashboard Report
-                    </a>
+                      View Dashboard Report
+                    </button>
                   )}
                   {project.github && (
                     <span className="flex items-center gap-1 text-slate-400">
@@ -399,6 +400,13 @@ export default function Portfolio() {
           <p>© 2024 Geoffrey Anguyo. Building data solutions for global health.</p>
         </div>
       </footer>
+
+      {activeWorkSample && (
+        <WorkSampleModal
+          workSample={activeWorkSample}
+          onClose={() => setActiveWorkSample(null)}
+        />
+      )}
     </div>
   );
 }
