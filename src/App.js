@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Mail, Upload, Code2, Database, BarChart3, Server, Menu, X, FileText } from 'lucide-react';
+import { Mail, Upload, Code2, Database, BarChart3, Server, Menu, X, FileText, ArrowDownRight } from 'lucide-react';
 import { Github, Linkedin } from './components/BrandIcons';
 
 export default function Portfolio() {
@@ -172,19 +172,21 @@ export default function Portfolio() {
             National Health Data Systems | Java • Python • C# • Power BI
           </p>
 
-          <div className="flex gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="#projects"
+              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 bg-[length:200%_100%] px-7 py-4 text-base font-semibold text-white shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-1 hover:bg-right hover:shadow-xl hover:shadow-cyan-400/40 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-slate-950"
+            >
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              <span className="relative">Explore My Work</span>
+              <ArrowDownRight className="relative transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" size={20} />
+            </a>
             <a
               href="mailto:geoflen@gmail.com"
-              className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+              className="flex items-center gap-2 rounded-xl border border-slate-600 px-6 py-3.5 text-slate-200 transition-colors hover:border-cyan-400 hover:bg-slate-800 hover:text-white"
             >
               <Mail size={20} />
               Get in Touch
-            </a>
-            <a
-              href="#projects"
-              className="flex items-center gap-2 px-6 py-3 border border-slate-600 hover:border-blue-400 rounded-lg transition-colors"
-            >
-              View Work
             </a>
           </div>
         </div>
