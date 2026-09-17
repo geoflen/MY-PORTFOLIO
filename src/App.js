@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Mail, Upload, Code2, Database, BarChart3, Server, Menu, X } from 'lucide-react';
+import { Mail, Upload, Code2, Database, BarChart3, Server, Menu, X, FileText } from 'lucide-react';
 import { Github, Linkedin } from './components/BrandIcons';
 
 export default function Portfolio() {
@@ -44,7 +44,8 @@ export default function Portfolio() {
       tech: ["Power BI", "SQL", "DAX"],
       github: "Available on request",
       category: "analytics",
-      impact: "Ministry of Health • Supply chain optimization"
+      impact: "Ministry of Health • Supply chain optimization",
+      workSample: "/Facility Stock Status Dashboard New - 25-Nov-24.pdf"
     },
     {
       title: "HIV Case Based Surveillance System",
@@ -60,6 +61,14 @@ export default function Portfolio() {
       tech: ["SQL", "Power BI", "ETL pipelines"],
       category: "data-platform",
       impact: "2000+ facilities • National deployment"
+    },
+    {
+      title: "Maternal & Neonatal Deaths Dashboard",
+      description: "Built a Power BI dashboard to analyse maternal and neonatal deaths, helping stakeholders monitor outcomes and identify areas requiring focused intervention.",
+      tech: ["Power BI", "Data Analytics", "Reporting"],
+      category: "analytics",
+      impact: "Maternal & newborn health • Decision support",
+      workSample: "/maternal_neonatal_deaths.pdf"
     },
     {
       title: "Cold Chain Equipment Management Tool",
@@ -127,15 +136,11 @@ export default function Portfolio() {
           <div className="mb-6 inline-block">
             <div className="relative w-40 h-40 mx-auto">
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl shadow-cyan-500/10 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-5xl font-bold">
-                {heroImage ? (
-                  <img
-                    src={heroImage}
-                    alt="Hero profile"
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  'GA'
-                )}
+                <img
+                  src={heroImage || "/Geof2.jpeg"}
+                  alt="Geoffrey Anguyo"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               <label
@@ -296,6 +301,17 @@ export default function Portfolio() {
                 </div>
                 
                 <div className="flex gap-4 text-sm">
+                  {project.workSample && (
+                    <a
+                      href={project.workSample}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors"
+                    >
+                      <FileText size={16} />
+                      View work sample
+                    </a>
+                  )}
                   {project.github && (
                     <span className="flex items-center gap-1 text-slate-400">
                       <Github size={16} />
