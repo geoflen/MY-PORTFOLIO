@@ -1,35 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Mail, Upload, Code2, Database, BarChart3, Server, Menu, X, FileText, ArrowDownRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Code2, Database, BarChart3, Server, Menu, X, FileText, ArrowDownRight } from 'lucide-react';
 import { Github, Linkedin } from './components/BrandIcons';
 import WorkSampleModal from './components/WorkSampleModal';
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
-  const [heroImage, setHeroImage] = useState(null);
   const [activeWorkSample, setActiveWorkSample] = useState(null);
-
-  useEffect(() => {
-    return () => {
-      if (heroImage) {
-        URL.revokeObjectURL(heroImage);
-      }
-    };
-  }, [heroImage]);
-
-  const handleHeroImageUpload = (event) => {
-    const file = event.target.files?.[0];
-
-    if (!file) {
-      return;
-    }
-
-    if (heroImage) {
-      URL.revokeObjectURL(heroImage);
-    }
-
-    setHeroImage(URL.createObjectURL(file));
-  };
 
   const projects = [
     {
@@ -136,29 +113,14 @@ export default function Portfolio() {
       <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-6 inline-block">
-            <div className="relative w-40 h-40 mx-auto">
+            <div className="w-40 h-40 mx-auto">
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl shadow-cyan-500/10 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-5xl font-bold">
                 <img
-                  src={heroImage || "/Geof2.jpeg"}
+                  src="/Geof2.jpeg"
                   alt="Geoffrey Anguyo"
                   className="w-full h-full object-cover"
                 />
               </div>
-
-              <label
-                htmlFor="hero-image-upload"
-                className="absolute -bottom-2 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/95 border border-slate-700 text-sm text-slate-200 hover:border-blue-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <Upload size={16} />
-                Upload Image
-              </label>
-              <input
-                id="hero-image-upload"
-                type="file"
-                accept="image/*"
-                onChange={handleHeroImageUpload}
-                className="sr-only"
-              />
             </div>
           </div>
           
