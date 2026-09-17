@@ -405,7 +405,7 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-slate-800 bg-slate-900">
         <div className="max-w-6xl mx-auto text-center text-slate-400">
-          <p>© 2024 Geoffrey Anguyo. Building data solutions for global health.</p>
+          <p>© 2026 Geoffrey Anguyo. Building useful things with data, code, and a little curiosity.</p>
         </div>
       </footer>
 
