@@ -34,7 +34,7 @@ export default function Portfolio() {
   const projects = [
     {
       title: "National Health Data Warehouse",
-      description: "Designed and implemented a centralized data warehouse integrating multiple national health data sources to support reporting, analytics, and decision making across thousands of facilities.",
+      description: "Architected a centralized data warehouse integrating multiple national health data sources to support reporting, analytics, and decision making across thousands of facilities.",
       tech: ["Python", "SQL Server", "SSIS", "Power BI"],
       github: "Private / Available on request",
       category: "data-platform",
