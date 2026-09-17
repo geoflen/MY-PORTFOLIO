@@ -3,10 +3,43 @@ import { Mail, Code2, Database, BarChart3, Server, Menu, X, FileText, ArrowDownR
 import { Github, Linkedin } from './components/BrandIcons';
 import WorkSampleModal from './components/WorkSampleModal';
 
+const workSamples = {
+  'facility-stock-status': {
+    title: 'Facility Stock Status Dashboard',
+    url: '/Facility Stock Status Dashboard New - 25-Nov-24.pdf'
+  },
+  'maternal-neonatal-deaths': {
+    title: 'Maternal & Neonatal Deaths Dashboard',
+    url: '/maternal_neonatal_deaths.pdf'
+  }
+};
+
+const getSharedWorkSample = () => {
+  const reportId = new URLSearchParams(window.location.search).get('report');
+  return workSamples[reportId] || null;
+};
+
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
-  const [activeWorkSample, setActiveWorkSample] = useState(null);
+  const [activeWorkSample, setActiveWorkSample] = useState(getSharedWorkSample);
+
+  const openWorkSample = (reportId) => {
+    const workSample = workSamples[reportId];
+    const pageUrl = new URL(window.location.href);
+
+    pageUrl.searchParams.set('report', reportId);
+    window.history.pushState({}, '', pageUrl);
+    setActiveWorkSample(workSample);
+  };
+
+  const closeWorkSample = () => {
+    const pageUrl = new URL(window.location.href);
+
+    pageUrl.searchParams.delete('report');
+    window.history.replaceState({}, '', pageUrl);
+    setActiveWorkSample(null);
+  };
 
   const projects = [
     {
@@ -24,7 +57,7 @@ export default function Portfolio() {
       github: "Available on request",
       category: "analytics",
       impact: "Ministry of Health • Supply chain optimization",
-      workSample: "/Facility Stock Status Dashboard New - 25-Nov-24.pdf"
+      workSampleId: "facility-stock-status"
     },
     {
       title: "HIV Case Based Surveillance System",
@@ -47,7 +80,7 @@ export default function Portfolio() {
       tech: ["Power BI", "Data Analytics", "Reporting"],
       category: "analytics",
       impact: "Maternal & newborn health • Decision support",
-      workSample: "/maternal_neonatal_deaths.pdf"
+      workSampleId: "maternal-neonatal-deaths"
     },
     {
       title: "Cold Chain Equipment Management Tool",
@@ -278,10 +311,10 @@ export default function Portfolio() {
                 </div>
                 
                 <div className="flex flex-wrap items-center gap-3 text-sm">
-                  {project.workSample && (
+                  {project.workSampleId && (
                     <button
                       type="button"
-                      onClick={() => setActiveWorkSample({ title: project.title, url: project.workSample })}
+                      onClick={() => openWorkSample(project.workSampleId)}
                       className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 bg-[length:200%_100%] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-1 hover:bg-right hover:shadow-xl hover:shadow-cyan-400/40 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-slate-800"
                     >
                       <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
@@ -379,7 +412,7 @@ export default function Portfolio() {
       {activeWorkSample && (
         <WorkSampleModal
           workSample={activeWorkSample}
-          onClose={() => setActiveWorkSample(null)}
+          onClose={closeWorkSample}
         />
       )}
     </div>
