@@ -167,7 +167,7 @@ export default function Portfolio() {
           </h1>
           
           <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-            Full-Stack Engineer & BI Architect | Global Health Tech Specialist
+            Full-Stack Software Engineer & BI Architect | Digital Health  | Health Informatics | Java | Python | C# | PHP
           </p>
           
           <p className="text-lg text-slate-400 mb-8">
